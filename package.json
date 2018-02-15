@@ -1,0 +1,14 @@
+{
+  "name": "CESC-Home",
+  "version": "1.0.0",
+  "description": "CE Samrt Camp Homepage",
+  "main": "index.js",
+  "repository": "https://github.com/mayueeeee/CESC-Home.git",
+  "author": "Sarunyu Chankong <sarunyu.you@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
