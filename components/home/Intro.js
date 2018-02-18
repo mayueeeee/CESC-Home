@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
+import Link from 'next/link'
 
 const IntroBG = styled.div `
   background-image: url("/static/images/bg/bg_home_png.png");
@@ -31,12 +32,18 @@ const ButtomPolygon = styled.img `
   
 `
 
-const RegisButton = styled.img`
-  max-width:20%;
+const RegisButton = styled.img `
+  z-index: 1000;
+  width: 20vw;
+  
+  cursor: pointer;
+  
 `
 
-const ScrollButton = styled.img`
-  max-width:20%;
+const ScrollButton = styled.img `
+  margin-top: 20px;
+  max-width:2%;
+  cursor: pointer;
 `
 const Hero = styled.img `
   z-index = 3;
@@ -60,21 +67,21 @@ export default class Intro extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <RegisButton src="/static/images/RegisButton.svg"/>
+                  <Link href="/register">
+                    <RegisButton src="/static/images/RegisButton.svg"/>
+                  </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  {/* <ScrollButton src="/static/images/RegisButton.svg"/> */}
-                  อิไม่ได้ให้มา
+                  <ScrollButton src="/static/images/scrollArrow.svg"/>
+
                 </Col>
               </Row>
-              
+
             </Container>
-            
-                  <ButtomPolygon src="/static/images/polygon/dec_1.svg"/>
-               
-              
+
+            <ButtomPolygon src="/static/images/polygon/dec_1.svg"/>
 
           </KeyboardBG>
         </IntroBG>
