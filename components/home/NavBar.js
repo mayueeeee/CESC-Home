@@ -19,6 +19,7 @@ import {
 const LogoText = styled(NavbarBrand)`  
   font-family: "hermesregular";
   font-size: 1.75rem !important;
+  color: #fff !important;
 `;
 export default class HomeNavBar extends React.Component {
   constructor(props) {
