@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
+import Map from './Map'
 const Address = styled.p `
     font-family: "superspace_regularregular";
     font-size: 1.45rem;
@@ -25,6 +26,8 @@ export default class Contact extends React.Component {
             </Col>
             <Col>
               <SectionHeader title="MAP"/>
+              {/* <Map/> */}
+
             </Col>
 
           </Row>

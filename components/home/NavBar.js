@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import Link from 'next/link'
 import {
+  Button,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -67,6 +69,9 @@ export default class HomeNavBar extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem>
+                {' '}<Link href="/register"><Button color="info">สมัครเลยยยยย</Button></Link>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
