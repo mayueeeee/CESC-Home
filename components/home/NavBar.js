@@ -41,8 +41,8 @@ export default class HomeNavBar extends React.Component {
   render() {
 
     return (
-      <div>
-        <Navbar color="faded" light expand="md">
+      <div className="sticky-top">
+        <Navbar color="dark" dark expand="md">
           <LogoText>CE Smart Camp 11</LogoText>
           <NavbarToggler onClick={this.toggle}/>
           <Collapse isOpen={this.state.isOpen} navbar>
