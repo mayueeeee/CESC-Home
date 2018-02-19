@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import {Container, Row, Col, Button} from 'reactstrap';
 import SectionHeader from './SectionHeader'
 import Link from 'next/link'
-
+import {
+  Link as ScrollLink,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller
+} from 'react-scroll'
 const IntroBG = styled.div `
   background-image: url("/static/images/bg/bg_home_png.png");
   background-position: center;
@@ -80,7 +88,15 @@ export default class Intro extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <ScrollButton src="/static/images/scrollArrow.svg"/>
+                  <ScrollLink                    
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    offset={-50}
+                    duration={1000}
+                    >
+                    <ScrollButton src="/static/images/scrollArrow.svg"/>
+                  </ScrollLink>
 
                 </Col>
               </Row>
