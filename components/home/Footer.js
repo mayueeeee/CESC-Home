@@ -28,7 +28,7 @@ export default class Footer extends React.Component {
       <div>
         <FooterWarpper>
 
-              <FooterText>© 2018 CE Smart Camp 11. All Rights Reserved. Developed by Mayueeeee #CE55</FooterText>
+              <FooterText>© 2018 CE Smart Camp 11. All Rights Reserved. Developed by <a href="https://github.com/mayueeeee">Mayueeeee</a> #CE55</FooterText>
 
         </FooterWarpper>
         {/* <FooterWarpper>
