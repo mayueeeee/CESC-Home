@@ -32,8 +32,9 @@ const ButtomPolygon = styled.img `
 `
 
 const RegisButton = styled.img `
+  margin-top: -2vh;
   z-index: 3;
-  width: 20vw;
+  width: 15vw;
   position: relative;
  
   cursor: pointer;
@@ -42,8 +43,8 @@ const RegisButton = styled.img `
 
 const ScrollButton = styled.img `
   z-index: 3;
-  margin-top: 25px;
-  max-width:3%;
+  margin-top: 1rem;
+  max-width:2%;
   cursor: pointer;
   position: relative;
 `
@@ -71,7 +72,7 @@ export default class Intro extends React.Component {
                 <Col>
 
                   <Link href="/register">
-                    <RegisButton src="/static/images/RegisButton.svg"/>                    
+                    <RegisButton src="/static/images/RegisButton.svg"/>
                   </Link>
                   {/* <h2>Coming soon!</h2> */}
 
