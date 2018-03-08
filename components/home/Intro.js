@@ -40,26 +40,68 @@ const ButtomPolygon = styled.img `
 `
 
 const RegisButton = styled.img `
-  margin-top: -2vh;
+  margin-top: -17vh;
   z-index: 3;
   width: 15vw;
   position: relative;
  
   cursor: pointer;
+  @media (max-width: 450px){
+    width: 60vw;
+    margin-top: 0vh;
+  }
   
 `
 
 const ScrollButton = styled.img `
   z-index: 3;
-  margin-top: 1rem;
-  max-width:2%;
+  // margin-top: 2;
+  /*max-width:2%;*/
+  width: 5%;
   cursor: pointer;
   position: relative;
+  @media (max-width: 450px){
+    margin-top: 5vh;
+    width: 20%;
+    
+  }
 `
-const Hero = styled.img `
+const Logo = styled.img `
   z-index = 3;
-  max-width: 45%
-  /*margin-top: 80px;*/
+  width:80%; 
+  margin-top: 10vh;
+
+  /*For Desktop*/
+  @media (min-width: 1025px){
+    max-width: 25%;
+    margin-top: 5vh;
+
+  }
+`
+const IOTChar = styled.img`
+  float:left;
+  z-index: 3;
+  width: 30vh;
+  margin-left: -8vh;
+  @media (min-width: 1025px){
+    margin-top: -15vh;
+    margin-left: -4vh;
+    width: 60vh;
+
+  }
+`
+
+const RobotChar = styled.img`
+  float:right;
+  z-index: 3;
+  width: 30vh;
+  margin-right: -6vh;
+  @media (min-width: 1025px){
+    margin-top: -15vh;
+    margin-right: -10vh;
+    width: 60vh;
+
+  }
 `
 
 export default class Intro extends React.Component {
@@ -73,7 +115,15 @@ export default class Intro extends React.Component {
             <Container fluid={true}>
               <Row>
                 <Col>
-                  <Hero src="/static/images/hero/hero-intro-edit.png"/>
+                  <Logo src="/static/images/hero/logo@4x.png"/>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6}>
+                  <RobotChar src="/static/images/hero/robot.png"/>
+                </Col>
+                <Col xs={6}>
+                  <IOTChar src="/static/images/hero/iot.png"/>
                 </Col>
               </Row>
               <Row>
