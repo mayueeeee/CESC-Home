@@ -17,6 +17,10 @@ import Contact from '../components/home/Contact'
 import Footer from '../components/home/Footer'
 import Intro from '../components/home/Intro'
 import About from '../components/home/About'
+import Timeline from '../components/home/Timeline'
+import Testimonial from '../components/home/Testimonial'
+import FAQ from '../components/home/FAQ'
+import Sponsor from '../components/home/Sponsor'
 const Index = styled.div `
   
 `
@@ -31,14 +35,26 @@ export default class extends React.Component {
         <Element name="about">
           <About/>
         </Element>
-        <Gallery/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
+        <Element name="timeline">
+          <Timeline/>
+        </Element>
+        <Element name="gallery">
+          <Gallery/>
+        </Element>
+        <Element name="testimonial">
+          <Testimonial/>
+        </Element>
+        <Element name="faq">
+          <FAQ/>
+        </Element>
+        <Element name="sponsor">
+          <Sponsor/>
+        </Element>
+        <Element name="contact">
+          <Contact/>
+        </Element>
+
+        
 
         <Footer/>
 
