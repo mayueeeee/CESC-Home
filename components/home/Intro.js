@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled ,{keyframes} from 'styled-components';
 import {Container, Row, Col, Button} from 'reactstrap';
 import SectionHeader from './SectionHeader'
 import Link from 'next/link'
@@ -38,13 +38,25 @@ const ButtomPolygon = styled.img `
   
   
 `
-
+const bounce = keyframes `
+  0%,100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+`
 const RegisButton = styled.img `
   margin-top: -17vh;
   z-index: 3;
   width: 15vw;
-  position: relative;
- 
+  position: relative; 
   cursor: pointer;
   @media (max-width: 450px){
     width: 60vw;
@@ -60,6 +72,7 @@ const ScrollButton = styled.img `
   width: 5%;
   cursor: pointer;
   position: relative;
+  animation: ${bounce} 1.5s linear infinite;
   @media (max-width: 450px){
     margin-top: 5vh;
     width: 20%;
