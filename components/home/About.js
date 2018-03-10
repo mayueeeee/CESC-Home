@@ -4,7 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
 
 const AboutWarper = styled.div `
-    padding: 6vh 0 100px 0;
+    padding: 10vh 0 100px 0;
     background-image: url("/static/images/bg/bg_about_png.png");
     background-position: center;
     background-repeat: no-repeat;
