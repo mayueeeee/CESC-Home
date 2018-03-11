@@ -4,7 +4,6 @@ import {Container, Row, Col} from 'reactstrap';
 import Slider from "react-slick"
 import SectionHeader from './SectionHeader'
 import Photo from '../../data/photo.json'
-import PhotoList from './PhotoList'
 const GalleryWarper = styled.div `
     padding: 100px 0 100px 0;
     background-image: url("/static/images/bg/bg_lastyear_png.png");
