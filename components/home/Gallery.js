@@ -4,6 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import Slider from "react-slick"
 import SectionHeader from './SectionHeader'
 import Photo from '../../data/photo.json'
+import PhotoList from './PhotoList'
 const GalleryWarper = styled.div `
     padding: 100px 0 100px 0;
     background-image: url("/static/images/bg/bg_lastyear_png.png");
@@ -15,11 +16,11 @@ const GalleryWarper = styled.div `
 const SlideImage = styled.img `
   width:80%;
 `
-const SlideThumbnail = styled.img`
+const SlideThumbnail = styled.img `
   width:80%;
   
 `
-const ThumbnailList = styled.div`
+const ThumbnailList = styled.div `
   margin-top:5vh;
 `
 const slick_settings = {
@@ -28,12 +29,11 @@ const slick_settings = {
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 1,
-  focusOnSelect: true,  
+  focusOnSelect: true,
   autoplay: true,
   autoplaySpeed: 2000,
   className: 'center',
-  centerMode: true,
-  centerPadding: '60px',
+  centerMode: true
 };
 
 export default class Gallery extends React.Component {
@@ -43,23 +43,39 @@ export default class Gallery extends React.Component {
     // Initial photo index
     var photo_index = Math.floor(Math.random() * (25 - 0 + 1)) + 0
     this.state = {
-      filename: Photo.filename[photo_index],
-      index: photo_index
+      filename: Photo.filename[0],
+      slideIndex: 0,
+      updateCount: 0
     }
-    this.handleSlideChange = this.handleSlideChange.bind(this)
+    this.handleSlideChange = this
+      .handleSlideChange
+      .bind(this)
+    this.changeHandler = this
+      .changeHandler
+      .bind(this)
   }
 
-  componentDidMount() {
-    // console.log(Filename)
-    // Photo.filename.forEach(filename=>{
-    //   console.log(filename)
-    // })
-
+  changeHandler(e) {
+    this
+      .sliderWrapper
+      .slider
+      .slickGoTo(e.target.value)
   }
 
-  handleSlideChange(oldIndex, newIndex){
-    this.setState({filename: Photo.filename[newIndex]})
+  changeUpdateCount(oldIndex, newIndex) {
+    this.setState({
+      updateCount: this.state.updateCount + 1,
+      filename: Photo.filename[newIndex]
+    })
   }
+
+  handleSlideChange(oldIndex, newIndex) {
+    this.setState({
+      filename: Photo.filename[newIndex],
+      updateCount: this.state.updateCount + 1
+    })
+  }
+
   render() {
 
     return (
@@ -83,30 +99,68 @@ export default class Gallery extends React.Component {
             </Col>
           </Row>
           <Row>
-            
+
             <Col xs={{
               size: 10,
               offset: 1
             }}>
-            <ThumbnailList>
-              {/* For Slick */}
-              <Slider {...slick_settings} beforeChange = {this.handleSlideChange}>              
-                {Photo.filename.map((element,index) => {
-                      return (
-                        <SlideThumbnail key={index} src={"/static/images/cescx/"+element || ""}/>
-                      )
-                    })}
-                
-                
-              </Slider>
-              </ThumbnailList>
 
+              {/* Slide */}
+              <ThumbnailList>
+                <SliderWrapper
+                  ref={sliderWrapper => this.sliderWrapper = sliderWrapper}
+                  beforeChange={this
+                  .changeUpdateCount
+                  .bind(this)}
+                  slideIndex={this.state.slideIndex}
+                  updateCount={this.state.updateCount}/>
+              </ThumbnailList>
             </Col>
 
           </Row>
         </Container>
 
       </GalleryWarper>
+    )
+  }
+}
+
+class SliderWrapper extends React.Component {
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // certain condition here, perhaps comparison between this.props and nextProps
+    // and if you want to update slider on setState in parent of this, return true,
+    // otherwise return false
+    if (this.props.updateCount !== nextProps.updateCount) {
+      return false
+    }
+    return true
+  }
+
+  render() {
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      focusOnSelect: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      className: 'center',
+      centerMode: true,
+      beforeChange: this.props.beforeChange
+    };
+
+    return (
+      <Slider ref={slider => this.slider = slider} {...settings}>
+        {Photo
+          .filename
+          .map((element, index) => {
+            return (<SlideThumbnail key={index} src={"/static/images/cescx/" + element || ""}/>)
+          })
+}
+      </Slider>
     )
   }
 }
