@@ -67,11 +67,7 @@ export default class Gallery extends React.Component {
       filename: Photo.filename[newIndex]
     })
   }
-  componentDidMount() {
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 0);
-  }
+  
   handleSlideChange(oldIndex, newIndex) {
     this.setState({
       filename: Photo.filename[newIndex],
@@ -130,6 +126,12 @@ export default class Gallery extends React.Component {
 
 class SliderWrapper extends React.Component {
 
+  componentDidMount() {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 0);
+  }
+  
   shouldComponentUpdate(nextProps, nextState) {
     // certain condition here, perhaps comparison between this.props and nextProps
     // and if you want to update slider on setState in parent of this, return true,
