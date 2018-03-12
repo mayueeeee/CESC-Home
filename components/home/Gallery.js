@@ -67,7 +67,11 @@ export default class Gallery extends React.Component {
       filename: Photo.filename[newIndex]
     })
   }
-
+  componentDidMount() {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 0);
+  }
   handleSlideChange(oldIndex, newIndex) {
     this.setState({
       filename: Photo.filename[newIndex],
