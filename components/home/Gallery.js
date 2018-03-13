@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
-import Slider from "react-slick"
+import Slider from 'react-slick'
+import NoSSR from 'react-no-ssr';
 import SectionHeader from './SectionHeader'
 import Photo from '../../data/photo.json'
 const GalleryWarper = styled.div `
@@ -17,6 +18,7 @@ const SlideImage = styled.img `
 `
 const SlideThumbnail = styled.img `
   width:80%;
+  min-height: auto !important;
   
 `
 const ThumbnailList = styled.div `
@@ -67,7 +69,7 @@ export default class Gallery extends React.Component {
       filename: Photo.filename[newIndex]
     })
   }
-  
+
   handleSlideChange(oldIndex, newIndex) {
     this.setState({
       filename: Photo.filename[newIndex],
@@ -106,6 +108,7 @@ export default class Gallery extends React.Component {
 
               {/* Slide */}
               <ThumbnailList>
+
                 <SliderWrapper
                   ref={sliderWrapper => this.sliderWrapper = sliderWrapper}
                   beforeChange={this
@@ -113,6 +116,7 @@ export default class Gallery extends React.Component {
                   .bind(this)}
                   slideIndex={this.state.slideIndex}
                   updateCount={this.state.updateCount}/>
+
               </ThumbnailList>
             </Col>
 
@@ -126,12 +130,6 @@ export default class Gallery extends React.Component {
 
 class SliderWrapper extends React.Component {
 
-  componentDidMount() {
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 0);
-  }
-  
   shouldComponentUpdate(nextProps, nextState) {
     // certain condition here, perhaps comparison between this.props and nextProps
     // and if you want to update slider on setState in parent of this, return true,
@@ -140,6 +138,9 @@ class SliderWrapper extends React.Component {
       return false
     }
     return true
+  }
+  componentDidMount(){
+    this.forceUpdate()
   }
 
   render() {
@@ -158,14 +159,16 @@ class SliderWrapper extends React.Component {
     };
 
     return (
-      <Slider ref={slider => this.slider = slider} {...settings}>
-        {Photo
-          .filename
-          .map((element, index) => {
-            return (<SlideThumbnail key={index} src={"/static/images/cescx/" + element || ""}/>)
-          })
+      
+        <Slider ref={slider => this.slider = slider} {...settings}>
+          {Photo
+            .filename
+            .map((element, index) => {
+              return (<SlideThumbnail key={index} src={"/static/images/cescx/" + element || ""}/>)
+            })
 }
-      </Slider>
+        </Slider>
+      
     )
   }
 }

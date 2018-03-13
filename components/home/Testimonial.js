@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
-
+import Review from '../../data/testimonial.json'
 const TestimonialWarper = styled.div `
     padding: 100px 0 100px 0;
     background-image: url("/static/images/bg/bg_test_png.png");
