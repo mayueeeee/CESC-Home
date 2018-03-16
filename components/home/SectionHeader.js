@@ -5,6 +5,7 @@ const Title = styled.h1 `
     font-family: "big_johnregular";  
     color: #ee981c;
     text-align: center;
+    margin-bottom: 2vh;
 `;
 const Line = styled.div`  
     border-top: 2px solid #ef981c;
