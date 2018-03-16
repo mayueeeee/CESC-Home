@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
 import Slider from 'react-slick'
-import NoSSR from 'react-no-ssr';
 import SectionHeader from './SectionHeader'
 import Photo from '../../data/photo.json'
 const GalleryWarper = styled.div `
@@ -29,7 +28,7 @@ const slick_settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 5,
-  slidesToScroll: 1,
+  slidesToScroll: 2,
   focusOnSelect: true,
   autoplay: true,
   autoplaySpeed: 2000,
