@@ -106,7 +106,7 @@ export default class Timeline extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <PeriodText>25 มีนาคม - 8 เมษายน</PeriodText>
+                  <PeriodText>29 พฤษภาคม-3 มิถุนายน</PeriodText>
                 </Col>
               </Row>
               <Row>
