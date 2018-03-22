@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
 import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
+import config from '../../config.json'
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) => <GoogleMap
   defaultZoom={16}
@@ -34,7 +35,7 @@ export default class Map extends React.Component {
       <div>
         <MyMapComponent
           isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
+          googleMapURL={"https://maps.googleapis.com/maps/api/js?key="+config.gmap_key+"&v=3.exp&libraries=geometry,drawing,places"}
           loadingElement={< div style = {{ height: `100%` }}/>}
           containerElement={< div style = {{ height: `400px` }}/>}
           mapElement={< div style = {{ height: `100%` }}/>}/>
