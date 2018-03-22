@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
-import OwlCarousel from 'react-owl-carousel2';
 import {Container, Row, Col} from 'reactstrap';
 import Slider from 'react-slick'
 import SectionHeader from './SectionHeader'
 import Review from '../../data/testimonial.json'
 
 const TestimonialWarper = styled.div `
-    padding: 100px 0 100px 0;
+    padding: 100px 0 0 0;
     background-image: url("/static/images/bg/bg_test_png.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -51,7 +50,7 @@ const slick_settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   focusOnSelect: true,
-  autoplay: false,
+  autoplay: true,
   autoplaySpeed: 2000,
   className: 'center',
   centerMode: true
@@ -105,7 +104,7 @@ export default class Testimonial extends React.Component {
           </Row> */}
          <Slider {...slick_settings}>
           {Review.map((ele, index) => {
-            return (<div><ReviewData key={index} reviewer={ele}/></div>)
+            return (<div key={index}><ReviewData key={index} reviewer={ele}/></div>)
           })}
           </Slider>
           
