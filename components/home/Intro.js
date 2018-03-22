@@ -142,7 +142,7 @@ export default class Intro extends React.Component {
               <Row>
                 <Col>
 
-                  <Link href="/register">
+                  <Link href="/register/login">
                     <RegisButton src="/static/images/RegisButton.svg"/>
                   </Link>
                   {/* <h2>Coming soon!</h2> */}
