@@ -47,17 +47,13 @@ export default class extends React.Component {
         <Element name="faq">
           <FAQ/>
         </Element>
-        <Element name="sponsor">
+        {/* <Element name="sponsor">
           <Sponsor/>
-        </Element>
+        </Element> */}
         <Element name="contact">
           <Contact/>
         </Element>
-
-        
-
         <Footer/>
-
       </Index>
     )
   }
