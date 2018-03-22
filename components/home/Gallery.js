@@ -23,6 +23,22 @@ const SlideThumbnail = styled.img `
 const ThumbnailList = styled.div `
   margin-top:5vh;
 `
+
+const PolygonWarper = styled.div `
+  margin-top: -5vh;
+  z-index: 3;
+
+` 
+const Polygon = styled.img `
+  position: absolute;
+  ${props => props.right
+    ? 'right: 0px;'
+    : ''}
+  // right: 0px;
+  width: 12%;
+
+`
+
 const slick_settings = {
   dots: false,
   infinite: true,
@@ -79,8 +95,8 @@ export default class Gallery extends React.Component {
   render() {
 
     return (
-      <GalleryWarper className="text-center">
-        <Container fluid={false}>
+      <GalleryWarper >
+        <Container fluid={false} className="text-center">
           <Row>
             <Col xs={{
               size: 10,
@@ -121,6 +137,10 @@ export default class Gallery extends React.Component {
 
           </Row>
         </Container>
+        <PolygonWarper>
+          <Polygon src ="/static/images/polygon/dec8_1.svg"/>
+          <Polygon  right src ="/static/images/polygon/dec6_1.svg"/>
+        </PolygonWarper>
 
       </GalleryWarper>
     )
