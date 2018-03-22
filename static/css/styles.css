@@ -1,8 +1,10 @@
-.brand-font{
-    font-family: "hermesregular";
-}
+.cur-month{
+    font-family: 'Mitr', sans-serif !important;
+    font-weight: 300 !important;
+  }
 
-.cesc-brand{
-    font-family: "hermesregular";
-    font-size: 1.75rem !important;
+.flatpickr-weekday{
+    font-family: 'Mitr', sans-serif !important;
+    font-size: 100% !important;
+
 }
