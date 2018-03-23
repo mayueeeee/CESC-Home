@@ -4163,6 +4163,10 @@ react-hot-loader@4.0.0-beta.18:
     hoist-non-react-statics "^2.3.1"
     react-stand-in "^4.0.0-beta.18"
 
+react-hotjar@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-hotjar/-/react-hotjar-1.0.11.tgz#d802ca46ecc2bd4aed44cde595bb89c9fb35cc54"
+
 react-no-ssr@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-no-ssr/-/react-no-ssr-1.1.0.tgz#313b48d2e26020f969ed98e472f10481604e3cc8"
