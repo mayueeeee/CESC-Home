@@ -82,7 +82,7 @@ export default class Register extends React.Component {
               : ""}
             {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
             {this.state.form.sub_camp == null
-              ? <CampSelector/>
+              ? <CampSelector form={this.state.form}/>
               : <RegForm form={this.state.form}/>}
 
           </Container>

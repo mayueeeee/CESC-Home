@@ -54,7 +54,9 @@ const Warning = styled.h5 `
 export default class SubCampSelector extends React.Component {
   constructor(props) {
     super(props)
-    
+    this.state = {      
+      form: this.props.form || {}
+    }
     
   }
 
@@ -66,9 +68,10 @@ export default class SubCampSelector extends React.Component {
           sub_camp: camp        
         })
         .then(res=>{
-          console.log(res)
+          // console.log(res)
           // this.setState({form:res.data})
           // console.log(this.state)
+          window.location.reload()
         })
         .catch(err=>{
           console.log(err)

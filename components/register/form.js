@@ -78,12 +78,12 @@ export default class RegisterForm extends React.Component {
   handleChange = (id, e) => {
     var tmp = this.state.data
     tmp[id] = e.target.value
-    console.log(tmp)
+    // console.log(tmp)
     this.setState({ data: tmp })
   }
 
   componentDidMount(){
-    console.log(this.state)
+    // console.log(this.state)
 
     flatpickr(`#birth_date`, {
       locale: Thai,
@@ -93,21 +93,16 @@ export default class RegisterForm extends React.Component {
         const dateStr = moment(date[0]).format('YYYY-MM-DD')
         var tmp = this.state.data
         tmp['birth_date'] = dateStr
-        console.log(tmp)
+        // console.log(tmp)
         this.setState({ data: tmp })
       }
     })
     
   }
-  componentWillReceiveProps(nextProps){
-    // console.log(nextProps.form)
-    if(this.state.data != nextProps.form){
-      
+  componentWillReceiveProps(nextProps){    
+    if(this.state.data != nextProps.form){      
       this.setState({data: nextProps.form})
       
-      
-      // console.log("Set leaw form state")
-      // console.log(this.state)
     }
    
 
