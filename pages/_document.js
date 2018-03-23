@@ -1,10 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import ReactGA from 'react-ga';
-import setting from '../config.json'
-ReactGA.initialize(setting.ga_code);
-ReactGA.pageview(window.location.pathname + window.location.search);
-
 export default class MyDocument extends Document {
     static getInitialProps ({ renderPage }) {
         const sheet = new ServerStyleSheet()
@@ -12,6 +7,8 @@ export default class MyDocument extends Document {
         const styleTags = sheet.getStyleElement()
         return { ...page, styleTags }
       }
+
+      
 
   render() {
     return (
@@ -29,12 +26,14 @@ export default class MyDocument extends Document {
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/1.2.2/react-datepicker.min.css" />
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
-              {this.props.styleTags} 
+              {this.props.styleTags}               
+
             </Head>
         <body>
           {this.props.customValue}
           <Main />
           <NextScript />
+          
         </body>
       </html>
     )

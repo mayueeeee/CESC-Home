@@ -29,6 +29,7 @@
     "react-flatpickr": "^3.6.4",
     "react-ga": "^2.4.1",
     "react-google-maps": "^9.4.5",
+    "react-hotjar": "^1.0.11",
     "react-no-ssr": "^1.1.0",
     "react-scroll": "^1.7.6",
     "react-slick": "^0.20.0",

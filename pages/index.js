@@ -21,6 +21,7 @@ import Timeline from '../components/home/Timeline'
 import Testimonial from '../components/home/Testimonial'
 import FAQ from '../components/home/FAQ'
 import Sponsor from '../components/home/Sponsor'
+import Layout from '../components/Layout'
 const Index = styled.div `
   
 `
@@ -29,32 +30,34 @@ export default class extends React.Component {
   render() {
 
     return (
-      <Index>
-        <Intro/>
-        <NavBar/>
-        <Element name="about">
-          <About/>
-        </Element>
-        <Element name="timeline">
-          <Timeline/>
-        </Element>
-        <Element name="gallery">
-          <Gallery/>
-        </Element>
-        <Element name="testimonial">
-          <Testimonial/>
-        </Element>
-        <Element name="faq">
-          <FAQ/>
-        </Element>
-        {/* <Element name="sponsor">
+      <Layout>
+        <Index>
+          <Intro/>
+          <NavBar/>
+          <Element name="about">
+            <About/>
+          </Element>
+          <Element name="timeline">
+            <Timeline/>
+          </Element>
+          <Element name="gallery">
+            <Gallery/>
+          </Element>
+          <Element name="testimonial">
+            <Testimonial/>
+          </Element>
+          <Element name="faq">
+            <FAQ/>
+          </Element>
+          {/* <Element name="sponsor">
           <Sponsor/>
         </Element> */}
-        <Element name="contact">
-          <Contact/>
-        </Element>
-        <Footer/>
-      </Index>
+          <Element name="contact">
+            <Contact/>
+          </Element>
+          <Footer/>
+        </Index>
+      </Layout>
     )
   }
 }

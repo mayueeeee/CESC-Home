@@ -8,6 +8,7 @@ import CampSelector from '../../components/register/SubCampSelector'
 import SectionHeader from '../../components/home/SectionHeader'
 import Alert from '../../components/Core/Alert'
 import setting from '../../config.json'
+import Layout from '../../components/Layout'
 const Logo = styled.img `
   z-index = 3;
   width:80%; 
@@ -53,39 +54,41 @@ export default class Register extends React.Component {
   componentDidMount() {
     console.log(localStorage.access_token)
     axios
-      .post(setting.prod_api_root + '/web/profile', {
-        access_token: localStorage.access_token        
-      })
-      .then(res=>{
+      .post(setting.prod_api_root + '/web/profile', {access_token: localStorage.access_token})
+      .then(res => {
         // console.log(res)
-        this.setState({form:res.data})
+        this.setState({form: res.data})
         // console.log(this.state)
       })
-      .catch(err=>{
+      .catch(err => {
         console.log(err.response.data.message)
-        this.setState({isError:true,
-        errorTXT: err.response.data.message})
+        this.setState({isError: true, errorTXT: err.response.data.message})
       });
 
   }
   render() {
     return (
-      <PageWarper>
-        <Container>
-          <Row className="text-center">
-            <Col>
-              <Logo src="/static/images/hero/logo@4x.png"/>
-              <SectionHeader title="Registration form"/>
-            </Col>
-          </Row>
-          { this.state.isError ? <Alert color="danger" errorCode={this.state.errorTXT}/> : ""}
-          {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
-          {this.state.form.sub_camp==null ? <CampSelector/> : <RegForm form={this.state.form}/> }
-          
-          
-        </Container>
+      <Layout>
+        <PageWarper>
+          <Container>
+            <Row className="text-center">
+              <Col>
+                <Logo src="/static/images/hero/logo@4x.png"/>
+                <SectionHeader title="Registration form"/>
+              </Col>
+            </Row>
+            {this.state.isError
+              ? <Alert color="danger" errorCode={this.state.errorTXT}/>
+              : ""}
+            {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
+            {this.state.form.sub_camp == null
+              ? <CampSelector/>
+              : <RegForm form={this.state.form}/>}
 
-      </PageWarper>
+          </Container>
+
+        </PageWarper>
+      </Layout>
     )
   }
 }
