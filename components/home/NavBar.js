@@ -50,7 +50,7 @@ export default class HomeNavBar extends React.Component {
               
               
               <NavItem>
-                {' '}<Link href="/register"><Button color="info">สมัครเลยยยยย</Button></Link>
+                {' '}<Link href="/register/login"><Button color="info">สมัครเลยยยยย</Button></Link>
               </NavItem>
             </Nav>
           </Collapse>
