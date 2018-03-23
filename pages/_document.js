@@ -1,5 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import ReactGA from 'react-ga';
+import setting from '../config.json'
+ReactGA.initialize(setting.ga_code);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default class MyDocument extends Document {
     static getInitialProps ({ renderPage }) {
