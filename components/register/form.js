@@ -63,12 +63,13 @@ export default class RegisterForm extends React.Component {
     axios
       .post(setting.prod_api_root + '/web/register/submit', data)
       .then(res=>{
-        console.log(res)
+        // console.log(res)
+        Router.push('/dashboard')
         // this.setState({form:res.data})
         // console.log(this.state)
       })
       .catch(err=>{
-        console.log(err.response.data.message)
+        console.log(err.response)
         // this.setState({isError:true,
         // errorTXT: err.response.data.message})
       });
