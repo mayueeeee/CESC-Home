@@ -49,18 +49,18 @@ const PageWarper = styled.div `
 
 export default class FBLogin extends React.Component {
 
-  responseFacebook(response) {
-    console.log(response);
-    //anything else you want to do(save to localStorage)...
+  responseFacebook(response) {    
     if (response.accessToken != null) {
+      // POST to backend to generate JWT
       axios
         .post(setting.prod_api_root + '/web/login', {
           facebook_uid: response.id,
           facebook_access_token: response.accessToken
         })
         .then(function (res) {
-          console.log(res);
+          // Store access-token in Local Storage
           localStorage.setItem("access_token", res.data.access_token);
+          // If complete redirect to dashboard
           if (res.data.is_register && res.data.is_complete) 
             Router.push('/dashboard')
           else 

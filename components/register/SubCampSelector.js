@@ -61,7 +61,7 @@ export default class SubCampSelector extends React.Component {
   }
 
   selectCamp = (camp) => {
-    console.log(camp)
+    // console.log(camp)
     axios
         .put(setting.prod_api_root + '/web/register/select', {          
           access_token: localStorage.access_token,
