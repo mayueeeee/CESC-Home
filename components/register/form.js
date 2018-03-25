@@ -139,7 +139,7 @@ export default class RegisterForm extends React.Component {
             <Col xs={12} md={3}>
               <FormGroup>
                 <Label htmlFor="company">เพศ</Label>
-                <Input type="select" onChange={(e) => this.handleChange('gender', e)} value={form.nickname||""}>
+                <Input type="select" onChange={(e) => this.handleChange('gender', e)} value={form.gender||""}>
                   <option value={''}>กรุณาเลือก</option>
                   <option value="0">หญิง</option>
                   <option value="1">ชาย</option>
