@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 import styled, { injectGlobal } from 'styled-components';
 import {
   Button,
@@ -64,9 +65,10 @@ export default class RegisterForm extends React.Component {
       .post(setting.prod_api_root + '/web/register/submit', data)
       .then(res=>{
         // console.log(res)
-        Router.push('/dashboard')
         // this.setState({form:res.data})
         // console.log(this.state)
+        //Redirect to dashboard for print
+        Router.push('/dashboard')       
       })
       .catch(err=>{
         console.log(err.response)
