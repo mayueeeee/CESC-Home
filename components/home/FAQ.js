@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
+import renderHTML from 'react-render-html';
 import SectionHeader from './SectionHeader'
 import QuestionData from '../../data/faq.json'
 const FAQWarper = styled.div `
@@ -78,7 +79,7 @@ export class Question extends React.Component {
             offset: 1,
             size: 10
           }}>
-            <TextBubble>{this.props.answer}</TextBubble>
+            <TextBubble>{renderHTML(this.props.answer)}</TextBubble>
           </Col>
           <Col xs={1}><Icon src="/static/images/icon/ans.svg"/></Col>
         </MarginRow>
