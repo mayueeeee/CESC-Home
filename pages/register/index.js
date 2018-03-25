@@ -51,14 +51,11 @@ export default class Register extends React.Component {
 
   }
 
-  componentDidMount() {
-    console.log(localStorage.access_token)
+  componentDidMount() {    
     axios
       .post(setting.prod_api_root + '/web/profile', {access_token: localStorage.access_token})
-      .then(res => {
-        // console.log(res)
-        this.setState({form: res.data})
-        // console.log(this.state)
+      .then(res => {        
+        this.setState({form: res.data})        
       })
       .catch(err => {
         console.log(err.response.data.message)
@@ -77,13 +74,13 @@ export default class Register extends React.Component {
                 <SectionHeader title="Registration form"/>
               </Col>
             </Row>
-            {this.state.isError
+            {this.state.errorTXT!=''
               ? <Alert color="danger" errorCode={this.state.errorTXT}/>
               : ""}
             {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
             {this.state.form.sub_camp == null
-              ? <CampSelector form={this.state.form}/>
-              : <RegForm form={this.state.form}/>}
+              ? <CampSelector form={this.state.form} errorCode={this.state.errorTXT}/>
+              : <RegForm form={this.state.form} errorCode={this.state.errorTXT}/>}
 
           </Container>
 
