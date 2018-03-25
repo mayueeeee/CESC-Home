@@ -5,6 +5,8 @@
     "fb_app_id": "",
     "ga_code": "",
     "hjid": "",
-    "hjsv":""
-    
+    "hjsv":"",
+    "Gen_Question": "",
+    "IOT_Question": "",
+    "Robot_Question": ""
 }
