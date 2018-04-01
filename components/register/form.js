@@ -66,10 +66,11 @@ export default class RegisterForm extends React.Component {
       .post(setting.prod_api_root + '/web/register/submit', data)
       .then(res=>{
         //Redirect to dashboard for print
-        Router.push('/dashboard')       
+        Router.push('/profile')       
       })
       .catch(err=>{
         console.log(err)        
+        this.props.errorHandle(err.response.data.message)
       });
 
   }
@@ -79,6 +80,7 @@ export default class RegisterForm extends React.Component {
     // console.log(tmp)
     this.setState({ data: tmp })
   }
+
 
   componentDidMount(){
     // Init flatpickr
@@ -457,7 +459,7 @@ export default class RegisterForm extends React.Component {
           </Row> */}
           <Row>
             <Col xs={12}>
-              <RegisButton color="primary" size="lg" block onClick={()=>this.submitCamp()}>สมัครค่าย</RegisButton>
+              <RegisButton color="primary" size="lg" block disabled={!(form.name&&form.surname&&form.nickname&&form.national_id)} onClick={()=>this.submitCamp()}>{this.props.edited?'บันทึกข้อมูล':'สมัครค่าย'}</RegisButton>
             </Col>
           </Row>
 

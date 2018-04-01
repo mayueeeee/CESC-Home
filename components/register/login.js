@@ -62,7 +62,7 @@ export default class FBLogin extends React.Component {
           localStorage.setItem("access_token", res.data.access_token);
           // If complete redirect to dashboard
           if (res.data.is_register && res.data.is_complete) 
-            Router.push('/dashboard')
+            Router.push('/profile')
           else 
             Router.push('/register')
 

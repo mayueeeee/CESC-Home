@@ -12,9 +12,10 @@ import {
   Alert
 } from 'reactstrap';
 import axios from 'axios'
-import setting from '../config.json'
-import Layout from '../components/Layout'
-import SectionHeader from '../components/home/SectionHeader'
+import setting from '../../config.json'
+import Layout from '../../components/Layout'
+import SectionHeader from '../../components/home/SectionHeader'
+import CustomAlert from '../../components/Core/Alert'
 const Logo = styled.img `
   z-index = 3;
   width:80%; 
@@ -52,7 +53,7 @@ const RoundButton = styled(Button)`
   
 
 `
-const Notice = styled.text`
+const Notice = styled.text `
   font-family: 'Mitr', sans-serif;
   font-weight:300;
 `
@@ -60,6 +61,8 @@ export default class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      isError: false,
+      errorTXT: "",
       form: {}
     }
 
@@ -81,6 +84,7 @@ export default class Register extends React.Component {
       })
       .catch(err => {
         console.log(err)
+        this.setState({isError: true, errorTXT: err.response.status})
       })
 
   }
@@ -98,6 +102,11 @@ export default class Register extends React.Component {
       });
 
   }
+
+  onDismiss = () => {
+    this.setState({isError: false});
+  }
+
   render() {
     return (
       <Layout>
@@ -107,9 +116,14 @@ export default class Register extends React.Component {
               <Row className="text-center">
                 <Col>
                   <Logo src="/static/images/hero/logo@4x.png"/>
-                  <SectionHeader title="Download section"/>
+                  <SectionHeader title="Member section อิ๊อิ๊"/>
                 </Col>
               </Row>
+              <CustomAlert
+                color="danger"
+                errorText={this.state.errorTXT}
+                show={this.state.isError}
+                toggle={this.onDismiss}/>
               <Row className="text-center">
                 <Col>
                   <Card>
@@ -117,19 +131,17 @@ export default class Register extends React.Component {
                       <CardRow>
                         <Col>
                           <Alert color="info">
-                          <i className="fas fa-info-circle"/>{' '}<Notice>น้องๆสามารถLoginเข้ามาดาวน์โหลดใบสมัครได้ตลอดระยะเวลาการรับสมัครนะครับ</Notice>
+                            <i className="fas fa-info-circle"/>{' '}
+                            <Notice>น้องๆสามารถLoginเข้ามาดาวน์โหลดใบสมัครได้ตลอดระยะเวลาการรับสมัครนะครับ</Notice>
                           </Alert>
 
                         </Col>
                       </CardRow>
                       <CardRow>
                         <Col>
-                          <RoundButton
-                            outline
-                            color="success"
-                            onClick={() => this.downloadForm()}
-                            size="lg"
-                            block>แก้ไขข้อมูลส่วนตัว</RoundButton>
+                          <Link href="/profile/edit">
+                            <RoundButton outline color="success" size="lg" block>แก้ไขข้อมูลส่วนตัว</RoundButton>
+                          </Link>
                         </Col>
                       </CardRow>
                       <CardRow>
@@ -165,6 +177,28 @@ export default class Register extends React.Component {
                             ? setting.IOT_Question
                             : setting.Robot_Question}
                             target="_blank">ดาวน์โหลดคำถามสาขา</RoundButton>
+                        </Col>
+                      </CardRow>
+                      <CardRow>
+                        <Col>
+                          <RoundButton
+                            outline
+                            color="success"
+                            size="lg"
+                            block
+                            href={setting.Approve_Form}
+                            target="_blank">ดาวน์โหลดใบรับรองการเข้าร่วมโครงการ</RoundButton>
+                        </Col>
+                      </CardRow>
+                      <CardRow>
+                        <Col>
+                          <RoundButton
+                            outline
+                            color="success"
+                            size="lg"
+                            block
+                            href={setting.Camp_Info}
+                            target="_blank">ดาวน์โหลดรายละเอียดค่าย</RoundButton>
                         </Col>
                       </CardRow>
                     </CardBody>

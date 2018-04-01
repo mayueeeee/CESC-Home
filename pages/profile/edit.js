@@ -40,7 +40,7 @@ const PageWarper = styled.div `
   background-repeat: no-repeat;
   background-size: cover;
 `
-export default class Register extends React.Component {
+export default class Edit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -48,15 +48,14 @@ export default class Register extends React.Component {
       errorTXT: "",
       form: {}
     }
-    
 
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     axios
       .post(setting.prod_api_root + '/web/profile', {access_token: localStorage.access_token})
-      .then(res => {        
-        this.setState({form: res.data})        
+      .then(res => {
+        this.setState({form: res.data})
       })
       .catch(err => {
         console.log(err.response.data.message)
@@ -65,22 +64,12 @@ export default class Register extends React.Component {
 
   }
 
-  
-  subCampCallback = (subcamp)=>{
-    var tmp = this.state.form
-    tmp['sub_camp'] = subcamp
-    // console.log(tmp)
-    this.setState({ form: tmp })
-    console.log(subcamp)
-
-  }
-
-  errorCallback = (error) =>{
+  errorCallback = (error) => {
     this.setState({isError: true, errorTXT: error})
   }
 
   onDismiss = () => {
-    this.setState({ isError: false });
+    this.setState({isError: false});
   }
 
   render() {
@@ -91,19 +80,16 @@ export default class Register extends React.Component {
             <Row className="text-center">
               <Col>
                 <Logo src="/static/images/hero/logo@4x.png"/>
-                <SectionHeader title="Registration form"/>
+                <SectionHeader title="Edit data"/>
               </Col>
             </Row>
-            {/* {this.state.errorTXT!=''
-              ? <Alert color="danger" errorCode={this.state.errorTXT}/>
-              : ""} */}
+            <Alert
+              color="danger"
+              errorText={this.state.errorTXT}
+              show={this.state.isError}
+              toggle={this.onDismiss}/>
 
-            <Alert color="danger" errorText={this.state.errorTXT} show={this.state.isError} toggle={this.onDismiss} />
-
-            {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
-            {this.state.form.sub_camp == null
-              ? <CampSelector errorHandle={this.errorCallback} subCampHandle={this.subCampCallback}/>
-              : <RegForm form={this.state.form} errorHandle={this.errorCallback}/>}
+            <RegForm form={this.state.form} errorHandle={this.errorCallback} edited/>
 
           </Container>
 

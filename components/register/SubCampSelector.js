@@ -53,28 +53,22 @@ const Warning = styled.h5 `
 
 export default class SubCampSelector extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {      
-      form: this.props.form || {}
-    }
-    
+    super(props)    
   }
 
-  selectCamp = (camp) => {
-    // console.log(camp)
+  selectCamp = (camp) => {    
     axios
         .put(setting.prod_api_root + '/web/register/select', {          
           access_token: localStorage.access_token,
           sub_camp: camp        
         })
         .then(res=>{
-          // console.log(res)
-          // this.setState({form:res.data})
-          // console.log(this.state)
-          window.location.reload()
+          console.log(res)
+          this.props.subCampHandle(camp)
         })
         .catch(err=>{
           console.log(err)
+          this.props.errorHandle(err.response.data.message)
         });
   }
 
