@@ -48,6 +48,7 @@ export default class Register extends React.Component {
       errorTXT: "",
       form: {}
     }
+    
 
   }
 
@@ -63,6 +64,25 @@ export default class Register extends React.Component {
       });
 
   }
+
+  
+  subCampCallback = (subcamp)=>{
+    var tmp = this.state.form
+    tmp['sub_camp'] = subcamp
+    // console.log(tmp)
+    this.setState({ form: tmp })
+    console.log(subcamp)
+
+  }
+
+  errorCallback = (error) =>{
+    this.setState({isError: true, errorTXT: error})
+  }
+
+  onDismiss = () => {
+    this.setState({ isError: false });
+  }
+
   render() {
     return (
       <Layout>
@@ -74,13 +94,16 @@ export default class Register extends React.Component {
                 <SectionHeader title="Registration form"/>
               </Col>
             </Row>
-            {this.state.errorTXT!=''
+            {/* {this.state.errorTXT!=''
               ? <Alert color="danger" errorCode={this.state.errorTXT}/>
-              : ""}
+              : ""} */}
+
+            <Alert color="danger" errorText={this.state.errorTXT} show={this.state.isError} toggle={this.onDismiss} />
+
             {/* <Alert color="danger" errorCode={this.state.errorTXT}/> */}
             {this.state.form.sub_camp == null
-              ? <CampSelector form={this.state.form} errorCode={this.state.errorTXT}/>
-              : <RegForm form={this.state.form} errorCode={this.state.errorTXT}/>}
+              ? <CampSelector errorHandle={this.errorCallback} subCampHandle={this.subCampCallback}/>
+              : <RegForm form={this.state.form} errorHandle={this.errorCallback}/>}
 
           </Container>
 
