@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {Container, Row, Col} from 'reactstrap';
 const Title = styled.h1 `  
-    font-family: "big_johnregular";  
+    font-family: "big_johnregular", 'Mitr';  
     color: #ee981c;
     text-align: center;
     margin-bottom: 2vh;
