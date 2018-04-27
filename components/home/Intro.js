@@ -131,10 +131,10 @@ export default class Intro extends React.Component {
   }
 
   showButtom() {
-    console.log(`Regis: diff: ${this.state.regis_diff}`)
-    console.log(`Announce: diff: ${this.state.announce_diff}`)
-    console.log(`Confirm: diff: ${this.state.confirm_diff}`)
-    console.log(`Camp: diff: ${this.state.camp_diff}`)
+    // console.log(`Regis: diff: ${this.state.regis_diff}`)
+    // console.log(`Announce: diff: ${this.state.announce_diff}`)
+    // console.log(`Confirm: diff: ${this.state.confirm_diff}`)
+    // console.log(`Camp: diff: ${this.state.camp_diff}`)
     if (this.state.regis_diff < 0) {
       return (
         <Link href="/register/login">
