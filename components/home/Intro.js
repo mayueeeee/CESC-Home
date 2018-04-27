@@ -1,8 +1,10 @@
 import React from 'react'
-import styled ,{keyframes} from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Container, Row, Col, Button} from 'reactstrap';
 import SectionHeader from './SectionHeader'
 import Link from 'next/link'
+import moment from 'moment'
+import setting from '../../config.json'
 import {
   Link as ScrollLink,
   DirectLink,
@@ -91,7 +93,7 @@ const Logo = styled.img `
 
   }
 `
-const IOTChar = styled.img`
+const IOTChar = styled.img `
   float:left;
   z-index: 3;
   width: 30vh;
@@ -104,7 +106,7 @@ const IOTChar = styled.img`
   }
 `
 
-const RobotChar = styled.img`
+const RobotChar = styled.img `
   float:right;
   z-index: 3;
   width: 30vh;
@@ -118,6 +120,37 @@ const RobotChar = styled.img`
 `
 
 export default class Intro extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      regis_diff: moment().diff(moment("2018-04-25 23:59:59"), 'seconds'),
+      announce_diff: moment().diff(moment("2018-04-30 00:00:00"), 'seconds'),
+      confirm_diff: moment().diff(moment("2018-05-03 23:59:59"), 'seconds'),
+      camp_diff: moment().diff(moment("2018-06-03 23:59:59"), 'seconds')
+    }
+  }
+
+  showButtom() {
+    console.log(`Regis: diff: ${this.state.regis_diff}`)
+    console.log(`Announce: diff: ${this.state.announce_diff}`)
+    console.log(`Confirm: diff: ${this.state.confirm_diff}`)
+    console.log(`Camp: diff: ${this.state.camp_diff}`)
+    if (this.state.regis_diff < 0) {
+      return (
+        <Link href="/register/login">
+          <RegisButton src="/static/images/RegisButton.svg"/>
+        </Link>
+      )
+    } else if (this.state.regis_diff > 0 && this.state.announce_diff > 0) {
+      return (
+        <a href={setting.Announce_Sheet}>
+          <RegisButton src="/static/images/announce_button.svg"/>
+        </a>
+      )
+
+    }
+    // else{   return ('') }
+  }
 
   render() {
 
@@ -141,23 +174,22 @@ export default class Intro extends React.Component {
               </Row>
               <Row>
                 <Col>
+                  {this.showButtom()}
 
-                  <Link href="/register/login">
+                  {/* <Link href="/register/login">
                     <RegisButton src="/static/images/RegisButton.svg"/>
-                  </Link>
+                  </Link> */}
+
+                  {/* <a href={setting.Announce_Sheet}>
+                    <RegisButton src="/static/images/announce_button.svg"/>
+                  </a> */}
                   {/* <h2>Coming soon!</h2> */}
 
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <ScrollLink                    
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={1000}
-                    >
+                  <ScrollLink to="about" spy={true} smooth={true} offset={-50} duration={1000}>
                     <ScrollButton src="/static/images/scrollArrow.svg"/>
                   </ScrollLink>
 
