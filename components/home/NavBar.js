@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Link from 'next/link'
+import moment from 'moment'
 import {
   Button,
   Collapse,
@@ -46,13 +47,13 @@ export default class HomeNavBar extends React.Component {
           <LogoText>CE Smart Camp 11</LogoText>
           <NavbarToggler onClick={this.toggle}/>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            {/* <Nav className="ml-auto" navbar>
               
               
               <NavItem>
                 {' '}<Link href="/register/login"><Button color="info">สมัครเลยยยยย</Button></Link>
               </NavItem>
-            </Nav>
+            </Nav> */}
           </Collapse>
         </Navbar>
 
