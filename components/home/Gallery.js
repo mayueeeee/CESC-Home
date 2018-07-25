@@ -111,7 +111,7 @@ export default class Gallery extends React.Component {
               offset: 1
             }}>
               {/* For IMG Display */}
-              <SlideImage src={"/static/images/cescx/" + this.state.filename || ""}/>
+              <SlideImage src={"/static/images/cescx/" + this.state.filename || ""} className="animated fadeIn"/>
             </Col>
           </Row>
           <Row>

@@ -5,42 +5,30 @@ import {Container, Row, Col} from 'reactstrap';
 import SectionHeader from './SectionHeader'
 import config from '../../config.json'
 
-const MyMapComponent = withScriptjs(withGoogleMap((props) => <GoogleMap
-  defaultZoom={16}
-  defaultCenter={{
-  lat: 13.729369,
-  lng: 100.775960
-}}>
-  
-    <Marker
-      position={{
-      lat: 13.729291,
-      lng: 100.77569
-    }}
-      defaultTitle="อาคารปฏิบัติการวิศวกรรมศาสตร์ 2 (ตึก ECC)">
-      <InfoWindow>
-        <h6>อาคารปฏิบัติการวิศวกรรมศาสตร์ 2 (ตึก ECC)</h6>
-      </InfoWindow>
-    </Marker>
 
-  
+const GMap = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+`
 
-</GoogleMap>))
-
+const MapWarper = styled.div`
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+`
 export default class Map extends React.Component {
 
   render() {
+    let _url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.8221010245197!2d100.7733807141974!3d13.729218001516802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d664a2458d53d%3A0xd323a50b1d5b5562!2z4Lit4Liy4LiE4Liy4Lij4Lib4LiP4Li04Lia4Lix4LiV4Li04LiB4Liy4Lij4Lin4Li04Lio4Lin4LiB4Lij4Lij4Lih4Lio4Liy4Liq4LiV4Lij4LmMIDIgKOC4leC4tuC4gSBFQ0Mp!5e0!3m2!1sth!2sth!4v1530782934844"
 
     return (
-      <div>
-        <MyMapComponent
-          isMarkerShown
-          googleMapURL={"https://maps.googleapis.com/maps/api/js?key="+config.gmap_key+"&v=3.exp&libraries=geometry,drawing,places"}
-          loadingElement={< div style = {{ height: `100%` }}/>}
-          containerElement={< div style = {{ height: `400px` }}/>}
-          mapElement={< div style = {{ height: `100%` }}/>}/>
-
-      </div>
+      <MapWarper>       
+          <GMap src={_url} style = {{width:"600px" ,height:"450px", border:0}} frameborder="0" allowfullscreen/>
+      </MapWarper>
     )
   }
 }

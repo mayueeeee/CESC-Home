@@ -13,7 +13,7 @@ export default class Layout extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div style={{overflowX: 'hidden'}}>
         {this.props.children}
       </div>
     )
