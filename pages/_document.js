@@ -16,6 +16,11 @@ export default class MyDocument extends Document {
         <Head>
               <title>CE Smart Camp 11</title>
               <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+              <meta property="og:title" content="CE Smart Camp 11 @ KMITL"/>              
+              <meta property="og:url" content="http://cesmartcamp.com"/>
+              <meta property="og:description" content="CE SMART CAMP 11เป็นค่ายอบรมเชิงปฏิบัติการเพื่อเสริมสร้างความรู้ ให้แก่น้องๆนักเรียนในระดับชั้นมัธยมศึกษาตอนปลาย"/>
+              <meta property="og:type" content="company"/>
+              <meta property="og:image" content="https://cesc.kmi.tl/static/images/banner.png"/>
               <link href="https://fonts.googleapis.com/css?family=Mitr:300,400" rel="stylesheet"/>
               <link rel="stylesheet" href="/static/fonts/fonts.css"  />
               <link rel="stylesheet" href="/static/css/styles.css" />
@@ -26,6 +31,7 @@ export default class MyDocument extends Document {
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />              
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.3.2/dist/flatpickr.css"/>
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.3.2/dist/ie.css"/>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
               {this.props.styleTags}               
 
             </Head>
