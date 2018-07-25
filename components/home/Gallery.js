@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 import SectionHeader from './SectionHeader'
 import Photo from '../../data/photo.json'
 const GalleryWarper = styled.div `
-    padding: 100px 0 100px 0;
+    padding: 18% 0 100px 0;
     background-image: url("/static/images/bg/bg_lastyear_png.png");
     background-position: center;
     background-repeat: no-repeat;

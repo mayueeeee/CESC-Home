@@ -223,7 +223,7 @@ export default class Intro extends React.Component {
 
   render() {
     return (
-      <div className="text-center">
+      <div className="text-center" style={{marginTop: '-2vh'}}>
         <IntroBG>
           <KeyboardBG>
             <Container fluid={true}>
@@ -243,15 +243,6 @@ export default class Intro extends React.Component {
               <Row>
                 <Col>
                   {this.showButtom()}
-
-                  {/* <Link href="/register/login">
-                    <RegisButton src="/static/images/RegisButton.svg"/>
-                  </Link> */}
-
-                  {/* <a href={setting.Announce_Sheet}>
-                    <RegisButton src="/static/images/announce_button.svg"/>
-                  </a> */}
-                  {/* <h2>Coming soon!</h2> */}
                 </Col>
               </Row>
               <Row>

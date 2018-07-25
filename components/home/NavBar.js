@@ -2,19 +2,14 @@ import React from 'react'
 import styled from 'styled-components';
 import Link from 'next/link'
 import moment from 'moment'
-import {
-  Button,
-  Collapse,
+import {  
   Navbar,
   NavbarToggler,
   NavbarBrand,
+  Collapse,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  Button
 } from 'reactstrap';
 
 const LogoText = styled(NavbarBrand)`  
@@ -45,13 +40,10 @@ export default class HomeNavBar extends React.Component {
 
     return (
       <div className="sticky-top">
-        <Navbar color="dark" dark expand="md">
-          <LogoText>CE Smart Camp 11</LogoText>
-          {
-            moment.diff
-          }
-          <NavbarToggler onClick={this.toggle}/>
-          {/* <Collapse isOpen={this.state.isOpen} navbar>
+        <Navbar color="dark" dark expand="md" >
+          <LogoText>CE Smart Camp 11</LogoText>         
+          {/* <NavbarToggler onClick={this.toggle}/>
+          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               
               
