@@ -52,9 +52,9 @@ export default class extends React.Component {
           {/* <Element name="sponsor">
           <Sponsor/>
         </Element> */}
-          {/* <Element name="contact">
+          <Element name="contact">
             <Contact/>
-          </Element> */}
+          </Element>
           {/* <Footer/> */}
         </Index>
       </Layout>
