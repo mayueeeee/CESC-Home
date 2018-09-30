@@ -55,7 +55,7 @@ export default class extends React.Component {
           <Element name="contact">
             <Contact/>
           </Element>
-          <Footer/>
+          {/* <Footer/> */}
         </Index>
       </Layout>
     )

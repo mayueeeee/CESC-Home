@@ -70,7 +70,7 @@ export class Question extends React.Component {
         <MarginRow>
           <Col xs={1}><Icon src="/static/images/icon/ask.svg"/></Col>
           <Col xs={10}>
-            <TextBubble asked>{this.props.question}</TextBubble>
+            <TextBubble asked>{this.props.question} ?</TextBubble>
           </Col>
         </MarginRow>
 
