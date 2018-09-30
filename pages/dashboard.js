@@ -16,7 +16,7 @@ import setting from '../config.json'
 import Layout from '../components/Layout'
 import SectionHeader from '../components/home/SectionHeader'
 const Logo = styled.img `
-  z-index = 3;
+  z-index: 3;
   width:80%; 
   margin-top: 10vh;
 
