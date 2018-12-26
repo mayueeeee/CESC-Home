@@ -223,7 +223,7 @@ export default class Intro extends React.Component {
 
   render() {
     return (
-      <div className="text-center" style={{marginTop: '-2vh'}}>
+      <div className="text-center">
         <IntroBG>
           <KeyboardBG>
             <Container fluid={true}>
@@ -251,7 +251,7 @@ export default class Intro extends React.Component {
                     to="about"
                     spy={true}
                     smooth={true}
-                    offset={-50}
+                    offset={-60}
                     duration={1000}
                   >
                     <ScrollButton src="/static/images/scrollArrow.svg" />
