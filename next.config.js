@@ -1,8 +1,2 @@
-module.exports = {
-    exportPathMap: function() {
-      return {
-        "/": {page: "/"},
-        
-      };
-    }
-  };
+const withImages = require('next-images')
+module.exports = withImages()
